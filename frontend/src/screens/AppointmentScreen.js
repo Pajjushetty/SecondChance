@@ -14,11 +14,11 @@ const AppointmentScreen = ({ }) => {
   const cart = useSelector((state) => state.cart);
   const { appointmentAddress } = cart;
   const [place, setPlace] = useState(appointmentAddress.place);
-  const [day, setDay] = useState(appointmentAddress.day);
+
   const [timeSlot, setTimeSlot] = useState(appointmentAddress.timeSlot);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [selectDate, setSelectedDate] = useState(moment());
+  const [day, setSelectedDate] = useState(moment());
   const submitHandler = (e) => {
     e.preventDefault();
     if (moment(day).isBefore(moment(), 'day')) {
@@ -64,7 +64,7 @@ const AppointmentScreen = ({ }) => {
             placeholder="Choose date"
             id="day"
             value={day}
-            onChange={(e) => setDay(e.target.value)}
+            onChange={(e) => setSelectedDate(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="timeSlot">
