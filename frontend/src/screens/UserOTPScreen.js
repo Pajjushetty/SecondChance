@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 // import { verifyOTP } from "../actions/userActions";
 import axios from "axios";
+import login from "./LoginScreen"
 
 
 const OTPScreen = ({ location }) => {
@@ -40,7 +41,7 @@ const OTPScreen = ({ location }) => {
       })
         .then((response) => {
           localStorage.setItem("userDetails", JSON.stringify(response.data))
-          navigate('/')
+          navigate('/login')
         }).catch((error) => {
           alert(error)
         });
